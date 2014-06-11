@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context displayName="Test" docBase="TestDB" path="/TestDB" reloadable="true">
+	<Resource name="jdbc/dbtest" auth="Container"
+	type="javax.sql.DataSource" username="root" password="0000"
+	driverClassName="org.gjt.mm.mysql.Driver"
+	url="jdbc:mysql://localhost/lecture?useUnicode=true&amp;characterEncoding=UTF-8"
+	maxActive="4" maxWait="5000" maxIdle="2"
+	validationQuery="SELECT count(*) FROM todo_list" />
+
+	<Realm className="org.apache.catalina.realm.DataSourceRealm"
+		dataSourceName="jdbc/dbtest" localDataSource="true" digest="MD5"
+		roleNameCol="role" userCredCol="passwd" userNameCol="uid"
+		userRoleTable="usr_role" userTable="usr" />
+
+</Context>
